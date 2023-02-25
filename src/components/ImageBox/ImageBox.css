@@ -1,0 +1,61 @@
+.searchbox-wrap {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  z-index: 99;
+}
+
+input {
+  flex: 1;
+  padding: 25px 15px;
+  font-size: 1.1em;
+  -webkit-border-top-left-radius: 25px;
+  -webkit-border-bottom-left-radius: 25px;
+  -moz-border-radius-topleft: 25px;
+  -moz-border-radius-bottomleft: 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: none;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.19);
+  border: none;
+  outline: none;
+}
+
+.searchbox-wrap button {
+  font-family: inherit;
+  padding-right: 10px;
+  background-color: #fff;
+  -webkit-border-top-right-radius: 25px;
+  -webkit-border-bottom-right-radius: 25px;
+  -moz-border-radius-topright: 25px;
+  -moz-border-radius-bottomright: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.19);
+  border: none;
+  cursor: pointer;
+  cursor: hand;
+}
+.searchbox-wrap span {
+  padding: 18px 35px;
+  font-size: 0.94rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  background-color: #000;
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.19);
+  border: 2px solid #000;
+  transition: 0.5s;
+}
+span:hover {
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.19);
+}
+@media only screen and (max-width: 550px) {
+  .searchbox-wrap {
+    padding: 10px;
+  }
+}
