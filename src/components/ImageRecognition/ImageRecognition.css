@@ -1,0 +1,42 @@
+.img-recognition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-recog {
+  width: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  z-index: 99;
+  transition: 0.5s;
+}
+
+.image-recog:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.image-recog img {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  z-index: 99;
+}
+.bound-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #149df2 inset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5;
+  z-index: 1000;
+}
+.bound-box:hover {
+  box-shadow: 0 0 0 3px #000000 inset;
+}

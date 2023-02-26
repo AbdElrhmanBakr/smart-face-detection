@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./LogIn.css";
 
 const LogIn = () => {
@@ -5,9 +6,11 @@ const LogIn = () => {
   return (
     <section>
       <div className="login-container">
-        <span className="icon-close">
-          <ion-icon name="close-outline"></ion-icon>
-        </span>
+        <Link to="/">
+          <span className="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+          </span>
+        </Link>
         <h1 className="login-header">LOGIN</h1>
         <div className="login-form">
           <form onSubmit={submitHandle}>
@@ -29,9 +32,9 @@ const LogIn = () => {
             <div className="register-container">
               <p className="register-text">
                 Do not have an account?!{" "}
-                <a href="" className="register-link">
+                <Link to="/signup" className="register-link">
                   Register Now
-                </a>
+                </Link>
               </p>
             </div>
           </form>

@@ -1,13 +1,19 @@
+import { useNavigate, Link } from "react-router-dom";
 import "./SignUp.css";
 
 const SignUp = () => {
+  const navigateTo = useNavigate();
+
+  const onLoginClick = () => navigateTo("/login");
   const submitHandle = () => {};
   return (
     <section>
       <div className="login-container">
-        <span className="icon-close">
-          <ion-icon name="close-outline"></ion-icon>
-        </span>
+        <Link to="/">
+          <span className="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+          </span>
+        </Link>
         <h1 className="login-header">REGISTRATION</h1>
         <div className="login-form">
           <form onSubmit={submitHandle}>
@@ -35,8 +41,8 @@ const SignUp = () => {
             <button type="submit">Sign Up</button>
             <div className="register-container">
               <p className="register-text">
-                Have an account?!{" "}
-                <a href="" className="register-link">
+                Have an account?!
+                <a onClick={onLoginClick} className="register-link">
                   Log In Now
                 </a>
               </p>

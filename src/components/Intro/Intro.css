@@ -1,34 +1,58 @@
-.intro-container {
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  z-index: 99;
+.sec-typewriter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+/* Typing */
+.intro-typewriter h1 {
+  width: 100%;
+  color: #fff;
+  font-family: monospace;
+  font-size: 1.5rem;
+  overflow: hidden;
+  border-right: 0.15em solid #ccc;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  user-select: none;
   transition: 0.5s;
 }
 
-.intro-container:hover {
-  background-color: #000;
-  color: #fff;
-}
-
-.type {
-  color: #0000;
-  background: linear-gradient(-90deg, #00dffc 5px, #0000 0) 10px 0,
-    linear-gradient(#00dffc 0 0) 0 0;
-  background-size: calc(53 * 1ch) 200%;
-  -webkit-background-clip: padding-box, text;
-  background-clip: padding-box, text;
-  background-repeat: no-repeat;
-  animation: b 0.7s infinite steps(1), t calc(53 * 0.15s) steps(53) forwards;
-}
-
-@keyframes t {
+@keyframes typing {
   from {
-    background-size: 0 200%;
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
-@keyframes b {
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
   50% {
-    background-position: 0 -100%, 0 0;
+    border-color: #ccc;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .intro-typewriter h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .intro-typewriter h1 {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .intro-typewriter h1 {
+    font-size: 0.8rem;
   }
 }

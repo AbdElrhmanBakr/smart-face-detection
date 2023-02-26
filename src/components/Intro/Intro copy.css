@@ -1,0 +1,96 @@
+.sec-typewriter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+/* Typing */
+.intro-typewriter h1 {
+  width: 100%;
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid #ccc; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  margin-bottom: 30px;
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  user-select: none;
+  transition: 0.5s;
+}
+
+.intro-typewriter2 h1 {
+  width: 100%;
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid #ccc; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  margin-bottom: 30px;
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing2 3.5s steps(30, end), blink-caret2 0.5s step-end infinite;
+  user-select: none;
+  transition: 0.5s;
+  animation-delay: 2s;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ccc;
+  }
+}
+@keyframes blink-caret2 {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ccc;
+  }
+}
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 550px) {
+  .intro-typewriter h1 {
+    font-size: 0.9rem;
+  }
+  .intro-typewriter2 h1 {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .intro-typewriter h1 {
+    font-size: 0.8rem;
+  }
+  .intro-typewriter2 h1 {
+    font-size: 0.8rem;
+  }
+}
