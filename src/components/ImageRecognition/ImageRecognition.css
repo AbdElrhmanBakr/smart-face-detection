@@ -40,3 +40,36 @@
 .bound-box:hover {
   box-shadow: 0 0 0 3px #000000 inset;
 }
+
+@media only screen and (max-width: 550px) {
+  .image-recog {
+    width: 420px;
+  }
+
+  .image-recog img {
+    width: 400px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .image-recog {
+    width: 370px;
+  }
+
+  .image-recog img {
+    width: 350px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .image-recog {
+    width: 350px;
+  }
+
+  .image-recog img {
+    width: 330px;
+    height: auto;
+  }
+}
