@@ -5,13 +5,13 @@ import { loadSlim } from "tsparticles-slim";
 
 const ReactParticles = () => {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
+    // console.log(engine);
     await loadSlim(engine);
     // await loadFull(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
+    // await console.log(container);
   }, []);
 
   return (
