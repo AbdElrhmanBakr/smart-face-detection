@@ -55,16 +55,16 @@ const ReactParticles = () => {
             width: 1,
           },
           collisions: {
-            enable: true,
+            enable: false,
           },
           move: {
-            directions: "none",
+            direction: "none",
             enable: true,
             outModes: {
               default: "bounce",
             },
             random: false,
-            speed: 2,
+            speed: 3,
             straight: false,
           },
           number: {
