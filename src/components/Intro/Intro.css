@@ -1,3 +1,6 @@
+.intro-sec {
+  flex-direction: column;
+}
 .sec-typewriter {
   display: flex;
   flex-direction: column;
@@ -8,21 +11,22 @@
 /* Typing */
 .intro-typewriter h1 {
   width: 100%;
-  color: #fff;
+  color: #000000;
   font-family: monospace;
   font-size: 1.5rem;
   overflow: hidden;
-  border-right: 0.15em solid #ccc;
+  border-right: 0.15em solid #000000;
   white-space: nowrap;
   margin: 0 auto;
   margin-bottom: 30px;
   letter-spacing: 0.15em;
-  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  animation: intro-typing 3.5s steps(30, end),
+    intro-blink-caret 0.5s step-end infinite;
   user-select: none;
   transition: 0.5s;
 }
 
-@keyframes typing {
+@keyframes intro-typing {
   from {
     width: 0;
   }
@@ -31,13 +35,13 @@
   }
 }
 
-@keyframes blink-caret {
+@keyframes intro-blink-caret {
   from,
   to {
     border-color: transparent;
   }
   50% {
-    border-color: #ccc;
+    border-color: #000000;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -55,4 +59,25 @@
   .intro-typewriter h1 {
     font-size: 0.8rem;
   }
+}
+
+/* Button */
+.intro-sec .btn-login {
+  width: 160px;
+  height: 40px;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  background: transparent;
+  outline: none;
+  color: #000000;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: 0.5s;
+  margin-right: 30px;
+}
+
+.intro-sec .btn-login:hover {
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
 }

@@ -34,8 +34,8 @@
   flex-wrap: wrap;
   justify-content: center;
   cursor: pointer;
-  transition: 0.5;
   z-index: 1000;
+  transition: 0.5;
 }
 .bound-box:hover {
   box-shadow: 0 0 0 3px #000000 inset;
