@@ -121,7 +121,7 @@
 
 .register-container {
   margin-top: 20px;
-  cursor: pointer;
+  user-select: none;
 }
 
 .register-container p {
@@ -138,4 +138,11 @@
 
 .register-container p a:hover {
   color: #fff;
+}
+.register-container .register-text Link {
+  cursor: pointer;
+}
+
+.register-container .register-text a {
+  cursor: pointer;
 }

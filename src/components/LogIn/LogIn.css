@@ -117,6 +117,7 @@
 
 .register-container {
   margin-top: 20px;
+  user-select: none;
 }
 
 .register-container p {
