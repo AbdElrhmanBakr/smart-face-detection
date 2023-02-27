@@ -14,9 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Intro />} />
+          <Route path="home" element={<MainContent />} />
           <Route path="login" element={<LogIn />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="home" element={<MainContent />} />
         </Route>
       </Routes>
       <ReactParticles />
