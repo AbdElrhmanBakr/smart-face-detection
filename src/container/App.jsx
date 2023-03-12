@@ -9,6 +9,12 @@ import MainContent from "../components/MainContent/MainContent";
 import "./App.css";
 
 function App() {
+  // Testing Server by Fetching all users data.
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/")
+  //     .then((response) => response.json())
+  //     .then(console.log);
+  // }, []);
   return (
     <>
       <Routes>
@@ -19,7 +25,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
         </Route>
       </Routes>
-      <ReactParticles />
+      {/* <ReactParticles /> */}
     </>
   );
 }
