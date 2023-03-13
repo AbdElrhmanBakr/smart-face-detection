@@ -4,13 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./container/App";
 import { ClarifaiProvider } from "./context/ClarifaiContext";
+import { UserProvider } from "./context/UserContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ClarifaiProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ClarifaiProvider>
+    <UserProvider>
+      <ClarifaiProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ClarifaiProvider>
+    </UserProvider>
   </React.StrictMode>
 );
