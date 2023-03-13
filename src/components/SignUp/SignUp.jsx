@@ -61,6 +61,7 @@ const SignUp = () => {
               <input
                 name="user"
                 type="text"
+                value={signUpFormData.user}
                 onChange={onFormInputChange}
                 required
               />
@@ -73,6 +74,7 @@ const SignUp = () => {
               <input
                 name="email"
                 type="text"
+                value={signUpFormData.email}
                 onChange={onFormInputChange}
                 required
               />
@@ -85,6 +87,7 @@ const SignUp = () => {
               <input
                 name="password"
                 type="password"
+                value={signUpFormData.password}
                 onChange={onFormInputChange}
                 required
               />
