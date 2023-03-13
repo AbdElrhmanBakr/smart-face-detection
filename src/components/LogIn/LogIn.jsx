@@ -1,10 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
+import { userContext } from "../../context/UserContext";
 import "./LogIn.css";
 
 const LogIn = () => {
+  const { setCurrentUser } = useContext(userContext);
+
   const navigateTo = useNavigate();
+
   const [signInFormData, setSignInFormData] = useState({
     email: "",
     password: "",
@@ -28,8 +33,9 @@ const LogIn = () => {
       body: JSON.stringify(signInFormData),
     })
       .then((response) => response.json())
-      .then((data) => {
-        if (data === "Logged In Successfully") {
+      .then((user) => {
+        if (user.id) {
+          setCurrentUser(user);
           navigateTo("/home");
         }
       });

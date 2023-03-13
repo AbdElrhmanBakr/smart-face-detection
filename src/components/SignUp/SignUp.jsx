@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
+
+import { userContext } from "../../context/UserContext";
 import "./SignUp.css";
 
 const SignUp = () => {
+  const { setCurrentUser } = useContext(userContext);
+
   const [signUpFormData, setSignUpFormData] = useState({
     user: "",
     email: "",
@@ -33,6 +37,7 @@ const SignUp = () => {
       .then((response) => response.json())
       .then((user) => {
         if (user) {
+          setCurrentUser(user);
           navigateTo("/home");
         }
       });
