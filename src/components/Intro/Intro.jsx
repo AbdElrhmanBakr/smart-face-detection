@@ -21,9 +21,9 @@ const Intro = () => {
           <h1>Please, Log In to use the Application.</h1>
         </div>
       </div>
-      <Link to="home">
+      {/* <Link to="home">
         <button className="btn-login">Test The App</button>
-      </Link>
+      </Link> */}
     </section>
   );
 };

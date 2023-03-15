@@ -5,15 +5,13 @@ import { userContext } from "../../context/UserContext";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const { setCurrentUser } = useContext(userContext);
-
   const [signUpFormData, setSignUpFormData] = useState({
-    user: "",
+    name: "",
     email: "",
     password: "",
   });
-
   const navigateTo = useNavigate();
+  const { setCurrentUser } = useContext(userContext);
 
   const onLoginClick = () => navigateTo("/login");
 
@@ -36,7 +34,7 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((user) => {
-        if (user) {
+        if (user.id) {
           setCurrentUser(user);
           navigateTo("/home");
         }
@@ -59,7 +57,7 @@ const SignUp = () => {
                 <ion-icon name="people"></ion-icon>
               </span>
               <input
-                name="user"
+                name="name"
                 type="text"
                 value={signUpFormData.user}
                 onChange={onFormInputChange}
