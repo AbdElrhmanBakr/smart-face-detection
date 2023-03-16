@@ -6,9 +6,9 @@ import "./SignUp.css";
 
 const SignUp = () => {
   const [signUpFormData, setSignUpFormData] = useState({
-    name: "",
     email: "",
     password: "",
+    name: "",
   });
   const navigateTo = useNavigate();
   const { setCurrentUser } = useContext(userContext);
