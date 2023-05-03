@@ -71,7 +71,7 @@ const SignUp = () => {
               </span>
               <input
                 name="email"
-                type="text"
+                type="email"
                 value={signUpFormData.email}
                 onChange={onFormInputChange}
                 required

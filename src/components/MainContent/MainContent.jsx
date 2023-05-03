@@ -19,13 +19,15 @@ const MainContent = () => {
 
   return (
     <section>
-      <div className="home-section">
-        <div className="typewriter">
-          <h1>Paste image link in the box, please.</h1>
+      {currentUser.id && (
+        <div className="home-section">
+          <div className="typewriter">
+            <h1>Paste image link in the box, please.</h1>
+          </div>
+          <InputBox setImageURL={setImageURL} />
+          <ImageRecognition imageURL={imageURL} />
         </div>
-        <InputBox setImageURL={setImageURL} />
-        <ImageRecognition imageURL={imageURL} />
-      </div>
+      )}
     </section>
   );
 };

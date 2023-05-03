@@ -58,7 +58,7 @@ const LogIn = () => {
               </span>
               <input
                 name="email"
-                type="text"
+                type="email"
                 onChange={onFormInputChange}
                 required
               />
