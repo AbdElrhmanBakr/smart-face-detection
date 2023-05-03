@@ -1,4 +1,5 @@
-import { useEffect, useReducer, createContext } from "react";
+import { useEffect, useReducer, createContext, useContext } from "react";
+import { userContext } from "./UserContext";
 
 //! Clarifai
 const PAT = "2b135cd9db254ceab719cc763108e00d";
@@ -83,6 +84,7 @@ const INITIAL_STATE = {
 export const ClarifaiProvider = ({ children }) => {
   const [state, dispatch] = useReducer(clarifaiRducer, INITIAL_STATE);
   const { imageURL, inputURL, clarifaiOptions, boundingBox } = state;
+  const { currentUser } = useContext(userContext);
 
   const setImageURL = (image) => {
     const action = {
@@ -108,6 +110,7 @@ export const ClarifaiProvider = ({ children }) => {
     dispatch(action);
   };
 
+  //Grab data from calrifai if input of image changes
   useEffect(() => {
     const payload = exportClarifyOptionsObject(inputURL);
     const action = {
@@ -116,6 +119,12 @@ export const ClarifaiProvider = ({ children }) => {
     };
     dispatch(action);
   }, [inputURL]);
+
+  // Clear Image if user is changed
+  useEffect(() => {
+    setImageURL("");
+    setInputURL("");
+  }, [currentUser]);
 
   const value = {
     imageURL,

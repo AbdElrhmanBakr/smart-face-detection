@@ -30,6 +30,7 @@ export const UserProvider = ({ children }) => {
   const { currentUser } = user;
 
   const setCurrentUser = (user) => {
+    localStorage.setItem("isSignedIn", JSON.stringify(user));
     const action = {
       type: USER_ACTION_TYPE.SET_CURRENT_USER,
       payload: user,
