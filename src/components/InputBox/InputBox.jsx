@@ -1,17 +1,11 @@
 import { useContext } from "react";
 
 import { clarifaiContext } from "../../context/ClarifaiContext";
-import { MODEL_ID, MODEL_VERSION_ID } from "../../context/ClarifaiContext";
 import "./InputBox.css";
 
 const InputBox = () => {
-  const {
-    setImageURL,
-    inputURL,
-    setInputURL,
-    clarifaiOptions,
-    setBoundingBox,
-  } = useContext(clarifaiContext);
+  const { setImageURL, inputURL, setInputURL, setBoundingBox } =
+    useContext(clarifaiContext);
 
   const handleImage = (event) => {
     setInputURL(event.target.value);
@@ -33,14 +27,11 @@ const InputBox = () => {
 
   const handleClick = () => {
     setImageURL(inputURL);
-    fetch(
-      "https://api.clarifai.com/v2/models/" +
-        MODEL_ID +
-        "/versions/" +
-        MODEL_VERSION_ID +
-        "/outputs",
-      clarifaiOptions
-    )
+    fetch("http://localhost:3000/image", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ inputURL }),
+    })
       .then((response) => response.json())
       .then((result) => setBoundingBox(clarifaiBoundingBox(result)))
       .catch((error) => console.log("Error", error));

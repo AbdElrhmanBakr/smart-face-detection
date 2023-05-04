@@ -1,48 +1,12 @@
 import { useEffect, useReducer, createContext, useContext } from "react";
 import { userContext } from "./UserContext";
 
-//! Clarifai
-const PAT = "2b135cd9db254ceab719cc763108e00d";
-const USER_ID = "9m2bs48higcq";
-const APP_ID = "f024665a17024acfbdc910578f0c8863";
-export const MODEL_ID = "face-detection";
-export const MODEL_VERSION_ID = "45fb9a671625463fa646c3523a3087d5";
-
-const exportClarifyOptionsObject = (imageLink) => {
-  const raw = JSON.stringify({
-    user_app_id: {
-      user_id: USER_ID,
-      app_id: APP_ID,
-    },
-    inputs: [
-      {
-        data: {
-          image: {
-            url: imageLink,
-          },
-        },
-      },
-    ],
-  });
-
-  const requestOptions = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      Authorization: "Key " + PAT,
-    },
-    body: raw,
-  };
-  return requestOptions;
-};
-
 //! Reducer
 export const clarifaiContext = createContext({
   imageURL: "",
   setImageURL: () => null,
   inputURL: "",
   setInputURL: () => null,
-  clarifaiOptions: {},
   boundingBox: {},
   setBoundingBox: () => null,
 });
@@ -50,7 +14,6 @@ export const clarifaiContext = createContext({
 const CLARIFAI_ACTION_TYPES = {
   SET_IMAGE_URL: "SET_IMAGE_URL",
   SET_INPUT_URL: "SET_INPUT_URL",
-  SET_CLARIFAI_OPTIONS: "SET_CLARIFAI_OPTIONS",
   SET_BOUNDING_BOX: "SET_BOUNDING_BOX",
 };
 
@@ -63,9 +26,6 @@ const clarifaiRducer = (state, action) => {
     case CLARIFAI_ACTION_TYPES.SET_INPUT_URL:
       return { ...state, inputURL: payload };
 
-    case CLARIFAI_ACTION_TYPES.SET_CLARIFAI_OPTIONS:
-      return { ...state, clarifaiOptions: payload };
-
     case CLARIFAI_ACTION_TYPES.SET_BOUNDING_BOX:
       return { ...state, boundingBox: payload };
 
@@ -77,13 +37,12 @@ const clarifaiRducer = (state, action) => {
 const INITIAL_STATE = {
   imageURL: "",
   inputURL: "",
-  clarifaiOptions: {},
   boundingBox: {},
 };
 
 export const ClarifaiProvider = ({ children }) => {
   const [state, dispatch] = useReducer(clarifaiRducer, INITIAL_STATE);
-  const { imageURL, inputURL, clarifaiOptions, boundingBox } = state;
+  const { imageURL, inputURL, boundingBox } = state;
   const { currentUser } = useContext(userContext);
 
   const setImageURL = (image) => {
@@ -110,16 +69,6 @@ export const ClarifaiProvider = ({ children }) => {
     dispatch(action);
   };
 
-  //Grab data from calrifai if input of image changes
-  useEffect(() => {
-    const payload = exportClarifyOptionsObject(inputURL);
-    const action = {
-      type: CLARIFAI_ACTION_TYPES.SET_CLARIFAI_OPTIONS,
-      payload: payload,
-    };
-    dispatch(action);
-  }, [inputURL]);
-
   // Clear Image if user is changed
   useEffect(() => {
     setImageURL("");
@@ -131,7 +80,6 @@ export const ClarifaiProvider = ({ children }) => {
     inputURL,
     setImageURL,
     setInputURL,
-    clarifaiOptions,
     boundingBox,
     setBoundingBox,
   };
