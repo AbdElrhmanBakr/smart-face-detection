@@ -9,14 +9,14 @@ const Intro = () => {
   const { currentUser } = useContext(userContext);
 
   useEffect(() => {
-    if (currentUser.id) {
+    if (currentUser) {
       navigateTo("/home");
     }
   }, [currentUser]);
 
   return (
     <section className="intro-sec">
-      {!currentUser.id && (
+      {!currentUser && (
         <div className="sec-typewriter">
           <div className="intro-typewriter">
             <h1>Please, Log In to use the Application.</h1>

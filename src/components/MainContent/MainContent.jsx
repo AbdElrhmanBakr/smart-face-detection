@@ -12,14 +12,14 @@ const MainContent = () => {
   const [imageURL, setImageURL] = useState("");
 
   useEffect(() => {
-    if (!currentUser.id) {
+    if (!currentUser) {
       navigateTo("/");
     }
   }, [currentUser]);
 
   return (
     <section>
-      {currentUser.id && (
+      {currentUser && (
         <div className="home-section">
           <div className="typewriter">
             <h1>Paste image link in the box, please.</h1>

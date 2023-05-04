@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <>
       <header className="header-container">
-        {currentUser.id ? (
+        {currentUser ? (
           <Link className="logo-link" to="/home">
             <div className="logo-container">
               <Logo />
@@ -31,7 +31,7 @@ const Header = () => {
           </Link>
         )}
 
-        {currentUser.id ? (
+        {currentUser ? (
           <nav className="navbar-container">
             <button className="btn-login" onClick={onSignOutClick}>
               Sign Out
