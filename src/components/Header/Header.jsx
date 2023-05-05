@@ -11,7 +11,7 @@ const Header = () => {
 
   const onSignOutClick = () => {
     navigateTo("/");
-    setCurrentUser({});
+    setCurrentUser(false);
   };
 
   return (
